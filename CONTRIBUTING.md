@@ -7,8 +7,8 @@ A LIO está em **versão beta**: em teste, aberta a quem quiser usar e dar opini
 | Você quer… | Como fazer | Precisa de conta no GitHub? |
 |---|---|---|
 | Dizer o que achou da LIO | Responda ao [formulário de opinião](https://docs.google.com/forms/d/e/1FAIpQLSfgBYt45TQsZMBL3DV7KHX-LgpnLY-RDb17_6ggDfYdwDai4Q/viewform) (uns 5 minutos) | Não |
-| Relatar um erro | Abra uma Issue com o modelo **Erro** | Sim |
-| Sugerir uma melhoria | Abra uma Issue com o modelo **Sugestão** | Sim |
+| Relatar um erro | Abra uma [Issue](https://github.com/JOACYFRANCA/lio/issues/new/choose) com o modelo **Erro** | Sim |
+| Sugerir uma melhoria | Abra uma [Issue](https://github.com/JOACYFRANCA/lio/issues/new/choose) com o modelo **Sugestão** | Sim |
 | Contar como usou com um grupo | Use o formulário (há perguntas para quem media) ou abra uma Issue **Sugestão** | Não |
 | Ajudar nas versões para ChatGPT e Gemini | Essas versões serão construídas pelo autor, uma de cada vez. Se quiser testar quando saírem, abra uma Issue **Sugestão** se oferecendo | Sim |
 

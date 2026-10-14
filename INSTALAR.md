@@ -16,9 +16,9 @@ Testado em 13/10/2026 numa conta Pro e numa conta gratuita do claude.ai: as duas
 
 ## 1. Instalar
 
-1. Baixe o arquivo `lio.html` deste repositório (abra o arquivo e clique em **Download raw file**).
-2. No Claude, abra uma conversa nova e anexe o `lio.html`.
-3. Copie e cole o pedido abaixo, sem mudar nada:
+1. Baixe o arquivo **[lio.html](https://github.com/JOACYFRANCA/lio/blob/main/lio.html)**: na página que abrir, clique no botão de download (seta para baixo, "Download raw file").
+2. Abra o Claude **[com o pedido de instalação já escrito](https://claude.ai/new?q=Publique%20o%20arquivo%20anexo%20lio.html%20como%20um%20artefato%20novo%2C%20exatamente%20como%20est%C3%A1%2C%20sem%20alterar%20nada%20no%20c%C3%B3digo.%0ADeclare%20exatamente%20estas%20permiss%C3%B5es%20%28capabilities%29%20na%20publica%C3%A7%C3%A3o%3A%0A%0A%7B%0A%20%22sample%22%3A%20%7B%20%22images%22%3A%20true%20%7D%2C%0A%20%22db%22%3A%20%7B%20%22rules%22%3A%20%5B%0A%20%20%7B%20%22path%22%3A%20%22atividades%22%2C%20%22read%22%3A%20%22view%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22entregas%22%2C%20%22read%22%3A%20%22owner%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22entregas%2F%7Bself%7D%22%2C%20%22read%22%3A%20%22interact%22%2C%20%22write%22%3A%20%22interact%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22aula%22%2C%20%22read%22%3A%20%22view%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22msg%2Fconfig%22%2C%20%22read%22%3A%20%22view%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22msg%2Fdados%2Fleitura%22%2C%20%22read%22%3A%20%22view%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22msg%2Fdados%2Fleitura%2F%7Bself%7D%22%2C%20%22write%22%3A%20%22interact%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22msg%2Fdados%2Fmembros%22%2C%20%22read%22%3A%20%22view%22%2C%20%22write%22%3A%20%22owner%22%20%7D%2C%0A%20%20%7B%20%22path%22%3A%20%22msg%2Fdados%2Fmembros%2F%7Bself%7D%22%2C%20%22write%22%3A%20%22interact%22%20%7D%0A%20%5D%20%7D%2C%0A%20%22user%22%3A%20%7B%20%22scopes%22%3A%20%5B%22profile%22%5D%20%7D%2C%0A%20%22downloads%22%3A%20%7B%7D%2C%0A%20%22room%22%3A%20%7B%20%22topics%22%3A%20%7B%20%22chamar%22%3A%20%22interact%22%20%7D%20%7D%0A%7D%0A%0ADepois%20de%20publicar%2C%20fixe%20o%20artefato%20na%20barra%20lateral%20e%20me%20diga%20o%20endere%C3%A7o%20dele.)** e anexe o `lio.html` que você baixou. Envie.
+3. Se o pedido não aparecer escrito, abra uma conversa nova no Claude, anexe o `lio.html` e cole o pedido abaixo, sem mudar nada:
 
 ```
 Publique o arquivo anexo lio.html como um artefato novo, exatamente como está, sem alterar nada no código.
@@ -55,7 +55,7 @@ Depois de publicar, fixe o artefato na barra lateral e me diga o endereço dele.
 | O que aconteceu | O que fazer |
 |---|---|
 | A LIO apareceu só dentro da conversa, sem endereço próprio | O Claude fez um artefato comum de chat, que não guarda dados. Peça de novo, lembrando que é para publicar como artefato com as permissões. |
-| O Claude pediu para alterar o arquivo | Não autorize mudanças no código. Copie a mensagem do Claude e registre o problema na aba **Issues** deste repositório. |
+| O Claude pediu para alterar o arquivo | Não autorize mudanças no código. Copie a mensagem do Claude e registre o problema na aba **[Issues](https://github.com/JOACYFRANCA/lio/issues)** deste repositório. |
 | A LIO não ficou fixada na barra lateral | Na mesma conversa, peça: "Fixe na barra lateral o artefato que você acabou de publicar." |
 | Não aparece a pergunta "Como você vai usar a LIO?" | Você abriu uma LIO de outra pessoa, não a sua. Veja a seção 3. |
 
@@ -65,7 +65,7 @@ Depois de publicar, fixe o artefato na barra lateral e me diga o endereço dele.
 
 Quando sair uma versão nova da LIO, a sua cópia não muda sozinha.
 
-1. Baixe o `lio.html` novo deste repositório.
+1. Baixe o **[lio.html](https://github.com/JOACYFRANCA/lio/blob/main/lio.html)** novo, como na instalação.
 2. No Claude, anexe o arquivo e cole o pedido abaixo, trocando o endereço pelo da sua LIO:
 
 ```

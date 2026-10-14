@@ -11,7 +11,7 @@ espaçada, mapas visuais, fichamento e treino de memória de trabalho.
 | Forma | Arquivo | Como |
 |---|---|---|
 | **No Claude** (versão de referência) | `lio.html` | Instale na sua conta do Claude: veja [INSTALAR.md](INSTALAR.md). A IA é a da sua conta; grupo, mensagens e aula ao vivo funcionam pelo próprio Claude. |
-| **No navegador** (versão independente) | `index.html` | Abra o site publicado deste repositório. Os estudos ficam no navegador de cada pessoa; a IA usa uma chave da API ou o modo copiar e colar. |
+| **No navegador** (versão independente) | `index.html` | Abra o site: [https://joacyfranca.github.io/lio/](https://joacyfranca.github.io/lio/). Os estudos ficam no navegador de cada pessoa; a IA usa uma chave da API ou o modo copiar e colar. |
 
 ## Contas do Claude
 
@@ -38,8 +38,8 @@ Links diretos:
 
 | Link | Efeito |
 |---|---|
-| `…/#participante` | Abre como participante: sem IA e sem chave. |
-| `…/#mediador` | Abre já no modo de mediação. |
+| [https://joacyfranca.github.io/lio/#participante](https://joacyfranca.github.io/lio/#participante) | Abre como participante: sem IA e sem chave. |
+| [https://joacyfranca.github.io/lio/#mediador](https://joacyfranca.github.io/lio/#mediador) | Abre já no modo de mediação. |
 
 ## Fluxo do grupo
 
@@ -89,6 +89,6 @@ Os textos que cada pessoa estuda na LIO continuam sendo de seus autores: estas l
 ## Contribua
 
 - **Dê sua opinião:** [formulário de 5 minutos](https://docs.google.com/forms/d/e/1FAIpQLSfgBYt45TQsZMBL3DV7KHX-LgpnLY-RDb17_6ggDfYdwDai4Q/viewform), sem login.
-- **Encontrou um erro ou tem uma ideia?** Abra uma Issue com o modelo **Erro** ou **Sugestão**.
+- **Encontrou um erro ou tem uma ideia?** Abra uma [Issue](https://github.com/JOACYFRANCA/lio/issues/new/choose) com o modelo **Erro** ou **Sugestão**.
 - Veja como as contribuições são tratadas em [CONTRIBUTING.md](CONTRIBUTING.md).
 
