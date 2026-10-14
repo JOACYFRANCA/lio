@@ -17,7 +17,7 @@ Este arquivo registra, no mesmo formato, como cada versão da LIO foi construíd
 
 ## Versão para Claude
 
-**Plataforma:** claude.ai (artefatos) · **Conta:** pessoal do autor, plano Pro · **Período:** 2026-10-09 a 2026-10-13 · **Versões:** 1 a 27
+**Plataforma:** claude.ai (artefatos) · **Conta:** pessoal do autor, plano Pro · **Período:** 2026-10-09 a 2026-10-14 · **Versões:** 1 a 29
 
 Registro feito depois da construção, a partir do histórico da Documentação Técnica. Por isso não tem tempo por pedido nem evidência por linha.
 
@@ -50,6 +50,8 @@ Registro feito depois da construção, a partir do histórico da Documentação 
 | 2026-10-13 | 25 | "Marcador inteligente" na Leitura ativa: o estudante marca de onde tirou a etiqueta, a IA mostra o trecho dela, e a sobreposição vira um indicador; pedir sugestão invalida | Avaliação de custo (baixo); fórmula escolhida pelo autor: coincidências ÷ palavras marcadas por um ou pelos dois; nome "Localização da ideia"; marcação congelada na primeira comparação contra burla; etiqueta "beta · v25" | Aceitou | — | Leitura ativa; Rodadas e índices | Conversa no claude.ai |
 | 2026-10-13 | 26 | Link para o formulário de opinião da beta | Etiqueta "beta · v26" vira link e nota "Dê sua opinião" no Início | Aceitou | — | Interface e acessibilidade | Conversa no claude.ai |
 | 2026-10-13 | 27 | Nome do autor e licenças | Cabeçalho do código com autor, copyright e aviso da AGPL-3.0; nome completo na Declaração e no README | Aceitou | — | — | Conversa no claude.ai |
+| 2026-10-14 | 28 | Na leitura ativa, ver todo o texto da seção e navegar livremente pelos "traços" (antes só era possível pular) | Traços viram botões (ir a qualquer parágrafo; azul quando há etiqueta; círculo final leva ao resumo), "◀ Parágrafo anterior", "Ver a seção inteira" com páginas marcadas e toque para estudar; testado em navegador sem interface | Aceitou | — | Leitura ativa | Conversa no claude.ai (Claude Opus 5.5) |
+| 2026-10-14 | 29 | Erro relatado: pedidos de exercícios e de questões voltavam à tela "Preparar exercícios" sem resultado | Geração testada com resposta simulada; falha silenciosa encontrada (interrupção vinda do Claude tratada como "Parar"); toda falha passa a mostrar o motivo e o código do erro; plural correto dos papéis ("Conclusões"). Causa original a confirmar em uso | Aceitou | — | Pedidos à IA | Conversa no claude.ai (Claude Opus 5.5) |
 
 ---
 

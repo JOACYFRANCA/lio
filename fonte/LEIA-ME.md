@@ -27,3 +27,8 @@ Veja `INSTALAR.md`, na raiz do repositório.
 ## Licença
 
 Código sob GNU AGPL 3.0 ou posterior (arquivo `LICENSE`); textos sob CC BY 4.0 (arquivo `LICENSE-TEXTOS`). Copyright © 2026 Joacy Raimundo França.
+
+
+## LIO-L (leitura de leis)
+
+A LIO-L, da mesma família, é gerada a partir deste `lio.html` e fica no repositório próprio [JOACYFRANCA/lio-l](https://github.com/JOACYFRANCA/lio-l). O `build.py` também monta a versão independente dela (`python3 build.py ../lio-l.html`); o gerador e as instruções estão em `fonte/` daquele repositório.

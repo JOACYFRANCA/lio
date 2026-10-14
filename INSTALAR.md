@@ -4,6 +4,8 @@
 
 Instalar a LIO é criar a sua própria cópia dela, dentro da sua conta do Claude. A cópia é sua: os estudos, o grupo e as mensagens ficam nela, e a IA usada é a da sua conta.
 
+Este guia é da **LIO-E (Educacional)**, que aparece na tela como **LIO**. Para a versão de leis, veja o [INSTALAR da LIO-L](https://github.com/JOACYFRANCA/lio-l/blob/main/INSTALAR.md).
+
 | Situação | O que fazer |
 |---|---|
 | Quero a minha LIO | [Instalar](#1-instalar) |

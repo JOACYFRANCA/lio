@@ -1,5 +1,10 @@
-import os
-_src='lio.html' if os.path.exists('lio.html') else os.path.join('..','lio.html')
+import os,sys
+# uso: python3 build.py                 → lio-local.html (LIO-E, a partir do lio.html)
+#      python3 build.py ../lio-l.html   → lio-l-local.html (LIO-L)
+_arg=sys.argv[1] if len(sys.argv)>1 else 'lio.html'
+_src=_arg if os.path.exists(_arg) else os.path.join('..',_arg)
+LEIS=os.path.basename(_src).startswith('lio-l')
+_saida='lio-l-local.html' if LEIS else 'lio-local.html'
 s=open(_src).read()
 # o código-fonte já é um documento completo: retira o esqueleto para montar o da versão independente
 if s.lstrip().lower().startswith('<!doctype'):
@@ -57,5 +62,6 @@ rep("'<span class=\"note\">Sem chave da API: dá para ler e anotar, mas não pre
 rep('<p>Para preparar as perguntas, configure a chave da API em Configurações. Mapa, leitura com etiquetas e glossário funcionam sem ela.</p>',
     "<p>'+(ehAluno()?'Esta seção não tem exercícios prontos. Mapa, leitura com etiquetas, glossário e revisão funcionam normalmente.':'Para preparar as perguntas, configure a chave da API em Configurações. Mapa, leitura com etiquetas e glossário funcionam sem ela.')+'</p>")
 rep('" Configure a chave da API em Configurações para lê-las por imagem; sem isso, o estudo seguirá sem elas."','(ehAluno()?" Neste site elas não podem ser lidas; o estudo seguirá sem elas.":" Configure a chave da API em Configurações para lê-las por imagem; sem isso, o estudo seguirá sem elas.")')
-open('lio-local.html','w').write(s)
+if LEIS:s=s.replace('"oficina-leitura"','"lio-leis"')   # banco local e backups separados da LIO-E
+open(_saida,'w').write(s)
 print('ok',len(s))

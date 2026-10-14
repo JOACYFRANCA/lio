@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!--
   LIO · Leitura Inteligente Orientada — versão para Claude (artefato do claude.ai)
-  Versão 27 (beta) · 13/10/2026 · Especificação comum: não publicada nesta fase (ver DECLARACAO_IA.md)
+  Versão 29 (beta) · 14/10/2026 · Especificação comum: não publicada nesta fase (ver DECLARACAO_IA.md)
   Copyright (C) 2026 Joacy Raimundo França
   Licença: GNU Affero General Public License 3.0 ou posterior (AGPL-3.0-or-later), ver LICENSE.
   Co-desenvolvimento humano–IA: concebido, especificado e validado por Joacy Raimundo França;
@@ -109,6 +109,23 @@ sup.fn{font-family:var(--f-mono);color:var(--accent);font-weight:500}
 .steps{display:flex;gap:4px;flex-wrap:wrap}
 .steps i{width:22px;height:6px;border-radius:3px;background:var(--line)}
 .steps i.done{background:var(--accent)} .steps i.now{background:var(--ink)}
+.steps.nav{gap:2px;align-items:center}
+.steps.nav button{border:0;background:none;padding:9px 1px;margin:0;cursor:pointer;display:inline-flex;border-radius:4px}
+.steps.nav button i{transition:height .12s}
+.steps.nav button:hover i,.steps.nav button:focus-visible i{height:10px}
+.steps.nav button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.steps.nav button.fim i{width:12px;border-radius:50%;height:12px;background:none;border:2px solid var(--line)}
+.steps.nav button.fim.now i{border-color:var(--ink)}
+.navpar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.navpar .note{margin:0}
+.secinteira .sh{font-family:var(--f-ui);font-weight:700;font-size:1rem;margin:1.2em 0 .4em}
+.secinteira .pgsep{display:block;font-family:var(--f-ui);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.1em 0 .4em;border-top:1px dashed var(--line);padding-top:.5em}
+.secinteira .sp{margin:0 0 .8em;padding:4px 8px;margin-left:-8px;margin-right:-8px;border-radius:6px;cursor:pointer;border-left:3px solid transparent}
+.secinteira .sp:hover{background:var(--accent-soft)}
+.secinteira .sp.atual{background:var(--accent-soft);border-left-color:var(--accent)}
+.secinteira .sp.q{padding-left:2em}
+.secinteira .sp .pn{font-family:var(--f-ui);font-size:.7rem;font-weight:700;color:var(--muted);margin-right:6px}
+.secinteira .sp .ok{font-family:var(--f-ui);font-size:.7rem;color:var(--accent);margin-left:4px}
 
 .orderlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .orderlist li{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--surface)}
@@ -428,7 +445,7 @@ a.beta-tag{text-decoration:none}a.beta-tag:hover{color:var(--accent);border-colo
 <header class="top">
   <div class="wrap">
     <div class="bar">
-      <div class="brand"><img class="lio-logo" src="data:image/webp;base64,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" alt="LIO" width="68" height="40"><span class="brand-t">Leitura Inteligente Orientada</span><a class="beta-tag" href="https://docs.google.com/forms/d/e/1FAIpQLSfgBYt45TQsZMBL3DV7KHX-LgpnLY-RDb17_6ggDfYdwDai4Q/viewform" target="_blank" rel="noopener" title="Versão em teste: dê sua opinião">beta · v27</a></div>
+      <div class="brand"><img class="lio-logo" src="data:image/webp;base64,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" alt="LIO" width="68" height="40"><span class="brand-t">Leitura Inteligente Orientada</span><a class="beta-tag" href="https://docs.google.com/forms/d/e/1FAIpQLSfgBYt45TQsZMBL3DV7KHX-LgpnLY-RDb17_6ggDfYdwDai4Q/viewform" target="_blank" rel="noopener" title="Versão em teste: dê sua opinião">beta · v29</a></div>
       <div class="tools">
         <button class="btn small" id="aa" aria-expanded="false" aria-controls="pnl" title="Ajustes de leitura">Aa<span class="so-desk"> Leitura</span></button>
         <span class="timer" id="clock" aria-live="off">00:00</span>
@@ -558,6 +575,7 @@ const NOTAS=[
   no:["A presença do kit no depósito da escola.","As etiquetas de distribuição dos órgãos públicos."]}
 ];
 
+const plural=t=>/ão$/.test(t)?t.replace(/ão$/,"ões"):t+"s";
 const PAPEIS={tese:"Tese",premissa:"Premissa",evidencia:"Evidência",conclusao:"Conclusão"};
 const ARGUMENTOS=[
  {titulo:"Grupos escolares e propaganda republicana",itens:[
@@ -634,6 +652,11 @@ function bindOpts(list,correct,onDone){
     onDone(right);
   });
 }
+/* Barra navegável: cada traço é um botão. feito(k) diz se o item k já foi trabalhado. */
+function navBar(n,i,feito,rotulo,fim){let s=`<div class="steps nav" role="navigation" aria-label="Ir para um parágrafo">`;
+  for(let k=0;k<n;k++){const d=feito(k),r=rotulo(k);s+=`<button type="button" class="${k===i?"now":d?"done":""}" data-nav="${k}" title="${esc(r)}" aria-label="${esc(r)}${d?", feito":""}"${k===i?' aria-current="step"':""}><i class="${k===i?"now":d?"done":""}"></i></button>`}
+  if(fim)s+=`<button type="button" class="fim${i>=n?" now":""}" data-nav="${n}" title="${esc(fim)}" aria-label="${esc(fim)}"${i>=n?' aria-current="step"':""}><i></i></button>`;
+  return s+"</div>"}
 function stepsBar(n,i){let s='<div class="steps" aria-label="Progresso">';for(let k=0;k<n;k++)s+=`<i class="${k<i?"done":k===i?"now":""}"></i>`;return s+"</div>"}
 
 /* ---------------- Navegação ---------------- */
@@ -1039,7 +1062,7 @@ function guardaPDF(){
 async function prepararTP(){const S=secTP();if(!S||tpJob)return;const ctl=new AbortController();tpJob={ctl,S};go();
   try{const g=await CAP.sample.json(promptSecao(S),{signal:ctl.signal,cache:false});const v=validar(g,S);
     delete S._erro;S.gen=v;await qw(secKey(S),()=>sCol(tp.id).doc(String(S.n)).update({gen:v}));toast("Exercícios prontos.")}
-  catch(e){if(!(e&&e.code==="cancelled")){S._erro=sampleMsg(e);toast(S._erro)}}
+  catch(e){avisoIA(e);if(!(e&&e.code==="cancelled"&&ctl.signal.aborted)){S._erro=sampleMsg(e);toast(S._erro)}}
   tpJob=null;recalcDados();if(["ex1","ex2","ex3"].includes(tab))go();
 }
 function nomeProg(k){return k.startsWith("pdf:")?"Com PDF · "+NOMES[k.slice(4)]:NOMES[k]}
@@ -1296,7 +1319,7 @@ const AV={completa:["ok","Completa"],parcial:["prog","Parcial"],incompleta:["bad
 async function gerarPerg(S){const ctl=new AbortController();est.pjob={ctl,S};pComp(S,$("#st"));
   try{const g=await CAP.sample.json(promptPerg(S),{signal:ctl.signal,cache:false});const v=validarPerg(g,S);
     if(v.length<3)throw {code:"poucas"};delete S._perr;await salvarSec(S,{perg:v});est.ci=0;toast("Perguntas prontas.")}
-  catch(e){if(!(e&&e.code==="cancelled")){S._perr=e&&e.code==="poucas"?"O Claude não conseguiu montar perguntas suficientes para esta seção.":sampleMsg(e);toast(S._perr)}}
+  catch(e){avisoIA(e);if(!(e&&e.code==="cancelled"&&ctl.signal.aborted)){S._perr=e&&e.code==="poucas"?"O Claude não conseguiu montar perguntas suficientes para esta seção.":sampleMsg(e);toast(S._perr)}}
   est.pjob=null;if(est.view==="secao"&&est.step==="compreensao"&&est.secoes[est.si]===S)pComp(S,$("#st"))}
 function pComp(S,el){if(!el)return;const R=S.resp;R.perg=R.perg||{};
   if(!arr(S.perg).length){
@@ -1413,7 +1436,7 @@ async function prepararTeste(){if(est.tjob)return;const ctl=new AbortController(
   const n=Math.max(6,Math.min(12,est.secoes.length*2)),{k,txt}=promptTeste(n);
   try{const g=await CAP.sample.json(txt,{signal:ctl.signal,cache:false,maxTokens:12000});const it=validarTeste(g);
     if(it.length<5)throw {code:"poucas"};est.meta.teste={itens:it,criado:agora(),secoes:k};await qw("meta",()=>mRef(est.id).update({teste:est.meta.teste}));toast("Teste pronto.")}
-  catch(e){if(!(e&&e.code==="cancelled"))est.meta._terr=e&&e.code==="poucas"?"Não saíram questões suficientes. Tente de novo.":sampleMsg(e)}
+  catch(e){avisoIA(e);if(!(e&&e.code==="cancelled"&&ctl.signal.aborted))est.meta._terr=e&&e.code==="poucas"?"Não saíram questões suficientes. Tente de novo.":sampleMsg(e)}
   est.tjob=null;if(est.view==="estudo")estEstudo()}
 const tstKey=()=>"tst_"+est.id;
 function iniciarTeste(f){const T=est.meta.teste,sv=load(tstKey(),null);
@@ -2271,11 +2294,17 @@ function dbMsg(e){const c=e&&e.code;
   if(c==="quota_exceeded")return "O espaço de armazenamento está cheio. Apague um estudo antigo para continuar.";
   if(c==="invalid_argument")return "Não foi possível salvar: sem permissão para salvar aqui, ou o trecho é grande demais.";
   return "Não foi possível salvar agora. Tente de novo em instantes."}
+/* Diagnóstico: o código do erro vai ao console e fica guardado para a mensagem de erro */
+function avisoIA(e){try{console.warn("LIO · erro ao falar com o Claude:",e&&e.code,e&&e.message,e)}catch(x){}}
 function sampleMsg(e){return ({not_granted:"A página não tem sua autorização para usar o Claude. Sem ela, os exercícios não podem ser preparados.",
   sampling_disabled:"O Claude não está disponível para esta conta.",rate_limited:"Limite de uso atingido por agora. Tente de novo mais tarde.",
   refused:"O Claude não aceitou processar este trecho.",invalid_json:"A resposta veio incompleta. Tente de novo.",
   prompt_too_large:"O trecho é grande demais para uma vez só.",image_rejected:"Uma das páginas não pôde ser lida como imagem.",
-  images_unavailable:"A leitura de páginas por imagem não está disponível aqui.",session_expired:"Sua sessão expirou. Entre de novo no claude.ai."})[e&&e.code]||"Algo falhou ao falar com o Claude. Tente de novo."}
+  images_unavailable:"A leitura de páginas por imagem não está disponível aqui.",session_expired:"Sua sessão expirou. Entre de novo no claude.ai.",
+  cancelled:"O pedido foi interrompido antes de terminar. Mantenha a página aberta e em primeiro plano enquanto o Claude prepara, e tente de novo.",
+  not_declared:"Esta LIO foi publicada sem a permissão de usar o Claude (sample). Atualize-a com as permissões do INSTALAR.md.",
+  capability_disabled:"O uso do Claude está desligado nesta visualização da página.",capability_removed:"O aplicativo do Claude aberto aqui é antigo para esta função. Atualize a página ou o aplicativo.",
+  upstream_error:"O Claude ficou instável no meio do pedido. Tente de novo em instantes.",empty_completion:"A resposta veio vazia. Tente de novo."})[e&&e.code]||("Algo falhou ao falar com o Claude. Tente de novo."+(e&&e.code?" (código: "+e.code+")":e&&e.message?" (detalhe: "+String(e.message).slice(0,140)+")":""))}
 
 const uCol=()=>CAP.db.collection("data/users/"+CAP.uid);
 const mRef=id=>uCol().doc("est_"+id);
@@ -2473,7 +2502,7 @@ const SEM_MATERIAL={frases:"O Claude não encontrou nesta seção frases longas 
 const corpo=S=>S.pars.map((p,i)=>p.h?-1:i).filter(i=>i>=0);
 const sinal=(S,k)=>arr(S.resp.flags).includes(k);
 function abrirPasso(s){const S=est.secoes[est.si],ok=passos(S).map(x=>x[0]);if(!ok.includes(s))s="mapa";
-  est.step=s;S.step=s;
+  est.step=s;S.step=s;est.verSec=false;
   if(s==="leitura"){const n=corpo(S).length;est.li=Math.min(S.resp.li||0,n);est.lph="read"}
   if(s==="frases"){est.fi=0;est.fr={c:0,t:0}}
   if(s==="vozes"){est.va={};est.vok=false}
@@ -2565,7 +2594,7 @@ async function gerar(S){
   try{const g=await CAP.sample.json(promptSecao(S),{signal:ctl.signal,cache:false});
     const v=validar(g,S);delete S._erro;await salvarSec(S,{gen:v});
     toast(v.desc?`Exercícios prontos. ${v.desc} item${v.desc>1?"s":""} descartado${v.desc>1?"s":""} por não conferir com o texto.`:"Exercícios prontos.");
-  }catch(e){if(!(e&&e.code==="cancelled")){S._erro=sampleMsg(e);toast(S._erro)}}
+  }catch(e){avisoIA(e);if(!(e&&e.code==="cancelled"&&ctl.signal.aborted)){S._erro=sampleMsg(e);toast(S._erro)}}
   est.job=null;
   if(est.view==="secao"&&est.secoes[est.si]===S){if(est.step==="leitura")redesenharSecao();else abrirPasso(est.step)}
 }
@@ -2653,20 +2682,40 @@ function ligarEtqIA(S,i,mk){const box=$("#eiaBox"),bc=$("#eia"),bs=$("#eiaSos");
 
 /* 2 · Leitura ativa */
 function pLeitura(S,el){const b=corpo(S),R=S.resp;R.etq=R.etq||{};R.gloss=arr(R.gloss);
+  if(est.li>b.length)est.li=b.length;
+  const barL=()=>navBar(b.length,est.li,k=>!!R.etq[b[k]],k=>`Parágrafo ${k+1} · p. ${S.pars[b[k]].pg}${R.etq[b[k]]?" · "+R.etq[b[k]]:""}`,"Resumo da seção");
+  const irPara=k=>{pararVoz();est.li=Math.max(0,Math.min(k,b.length));R.li=est.li;est.lph="read";est.verSec=false;est.sug=null;salvarResp(S);pLeitura(S,el);
+    const t=el.querySelector(".steps.nav");if(t&&t.getBoundingClientRect().top<0)t.scrollIntoView({block:"start"})};
+  const ligarNav=()=>{el.querySelectorAll("[data-nav]").forEach(x=>x.onclick=()=>irPara(+x.dataset.nav));
+    const vs=el.querySelector("#vsec");if(vs)vs.onclick=()=>{pararVoz();est.verSec=true;pLeitura(S,el)};
+    const pa=el.querySelector("#pant");if(pa)pa.onclick=()=>irPara(est.li-1)};
+  const botaoSec=`<button class="btn small" id="vsec" aria-label="Ver o texto inteiro da seção, páginas ${S.pgIni} a ${S.pgFim}">Ver a seção inteira (p. ${S.pgIni}–${S.pgFim})</button>`;
+  if(est.verSec){
+    let ult=null,html="";
+    S.pars.forEach((p,j)=>{if(p.pg!==ult){if(ult!==null)html+=`<span class="pgsep">p. ${p.pg}</span>`;ult=p.pg}
+      if(p.h){html+=`<p class="sh">${esc(p.t)}</p>`;return}
+      const k=b.indexOf(j);html+=`<p class="sp${k===est.li?" atual":""}${p.q?" q":""}" data-sp="${k}" title="Estudar este parágrafo"><span class="pn">${k+1}</span>${esc(p.t)}${R.etq[j]?'<span class="ok" aria-label="etiqueta escrita">✓</span>':""}</p>`});
+    el.innerHTML=`${barL()}<div class="navpar"><button class="btn small primary" id="vsx">← Voltar ${est.li<b.length?"ao parágrafo "+(est.li+1):"ao resumo"}</button><span class="note">Toque num parágrafo para estudá-lo.</span></div>
+    <div class="passage secinteira"><span class="label">Seção inteira · ${b.length} parágrafos · p. ${S.pgIni}–${S.pgFim}</span>${html}</div>
+    ${S.notas.length?`<details><summary>Notas de rodapé da seção (${S.notas.length})</summary>${S.notas.map(n=>`<p class="note-t"><span class="pgref">p. ${n.pg}</span> ${esc(n.t)}</p>`).join("")}</details>`:""}
+    <div class="row"><button class="btn small" id="vsx2">← Voltar ${est.li<b.length?"ao parágrafo "+(est.li+1):"ao resumo"}</button></div>`;
+    const volta=()=>{pararVoz();est.verSec=false;pLeitura(S,el)};$("#vsx").onclick=volta;$("#vsx2").onclick=volta;
+    el.querySelectorAll("[data-sp]").forEach(x=>x.onclick=()=>{const sel=window.getSelection();if(sel&&!sel.isCollapsed)return;irPara(+x.dataset.sp)});
+    ligarNav();const at=el.querySelector(".sp.atual");if(at)setTimeout(()=>at.scrollIntoView({block:"center"}),0);return}
   if(est.li>=b.length){
     const LV=b.filter(i=>R.marc&&R.marc[i]&&R.marc[i].loc),LM=LV.length?Math.round(LV.reduce((s,i)=>s+R.marc[i].loc.pct,0)/LV.length):null;
-    el.innerHTML=`<h2>Resumo da seção nas suas palavras</h2>${b.some(i=>R.etq[i])?`<ol class="resumo">${b.filter(i=>R.etq[i]).map(i=>`<li>${esc(R.etq[i])}${pg(S,i)}${(R.eorig||{})[i]==="ia"?' <span class="pill keep">da IA</span>':(R.eorig||{})[i]==="misto"?' <span class="pill keep">a partir da IA</span>':""}${R.marc&&R.marc[i]&&R.marc[i].loc?` <span class="pill loc">localização ${R.marc[i].loc.pct}%</span>`:""}</li>`).join("")}</ol>`:'<p class="note">Nenhuma etiqueta escrita.</p>'}
+    el.innerHTML=`${barL()}<div class="navpar">${botaoSec}</div><h2>Resumo da seção nas suas palavras</h2>${b.some(i=>R.etq[i])?`<ol class="resumo">${b.filter(i=>R.etq[i]).map(i=>`<li>${esc(R.etq[i])}${pg(S,i)}${(R.eorig||{})[i]==="ia"?' <span class="pill keep">da IA</span>':(R.eorig||{})[i]==="misto"?' <span class="pill keep">a partir da IA</span>':""}${R.marc&&R.marc[i]&&R.marc[i].loc?` <span class="pill loc">localização ${R.marc[i].loc.pct}%</span>`:""}</li>`).join("")}</ol>`:'<p class="note">Nenhuma etiqueta escrita.</p>'}
     ${LM!==null?`<div class="fb"><b class="loc">Localização da ideia nesta seção: ${LM}%</b> <span class="note">Média de ${LV.length} ${LV.length===1?"parágrafo":"parágrafos"} em que você marcou o texto e comparou a sua etiqueta com a da IA. Mede o quanto a região que você marcou coincide com a da IA (coincidências ÷ palavras marcadas por um ou pelos dois). Parágrafos que começaram com uma sugestão da IA não entram.</span></div>`:""}
     <p class="note">Estas etiquetas entram no fichamento. Dá para reescrever qualquer uma voltando à leitura.</p>
     <div class="row"><button class="btn primary" id="nx">Próxima etapa</button><button class="btn" id="re">Ler de novo desde o início</button></div>`;
-    $("#nx").onclick=()=>proximoPasso(S);$("#re").onclick=()=>{est.li=0;est.lph="read";S.resp.li=0;salvarResp(S);estSecao()};return}
+    $("#nx").onclick=()=>proximoPasso(S);$("#re").onclick=()=>{est.li=0;est.lph="read";S.resp.li=0;salvarResp(S);estSecao()};ligarNav();return}
   const i=b[est.li],P=S.pars[i];
   let sub="";for(let k=i-1;k>=0;k--){if(S.pars[k].h){sub=S.pars[k].t;break}if(!S.pars[k].h)break}
   const notas=S.notas.filter(n=>n.pg===P.pg);
-  const bar=stepsBar(b.length,est.li);
+  const bar=barL();
   if(est.lph==="read"){
     R.marc=R.marc||{};const MK=R.marc[i]=R.marc[i]||{u:[],a:[],snap:null};
-    el.innerHTML=`${bar}${sub?`<p class="subtitle">${esc(sub)}</p>`:""}<div class="passage${P.q?" q":""}"><span class="label">Parágrafo ${est.li+1} de ${b.length} · p. ${P.pg}${P.q?" · citação":""}</span><p id="parTx">${parMarcavel(P.t,new Set(MK.u||[]),new Set(MK.a||[]))}</p></div>
+    el.innerHTML=`${bar}<div class="navpar">${est.li>0?'<button class="btn small" id="pant">◀ Parágrafo anterior</button>':""}${botaoSec}</div>${sub?`<p class="subtitle">${esc(sub)}</p>`:""}<div class="passage${P.q?" q":""}"><span class="label">Parágrafo ${est.li+1} de ${b.length} · p. ${P.pg}${P.q?" · citação":""}</span><p id="parTx">${parMarcavel(P.t,new Set(MK.u||[]),new Set(MK.a||[]))}</p></div>
     <div class="mk-leg"><span><i class="lb-u"></i>Você</span><span id="mkLegA" hidden><i class="lb-a"></i>IA</span><span id="mkLegA2" hidden><i class="lb-b"></i>Os dois</span><button class="linkbtn" id="mkSel" type="button" hidden>Marcar a seleção</button><button class="linkbtn" id="mkLimpa" type="button" hidden>Limpar marcação</button></div>
     <p class="note">Marcador: toque nas palavras de onde você tirou a sua etiqueta, ou selecione um trecho. É opcional, e é o que permite medir a Localização da ideia.</p>
     ${notas.length?`<details><summary>Notas de rodapé da p. ${P.pg} (${notas.length})</summary>${notas.map(n=>`<p class="note-t">${esc(n.t)}</p>`).join("")}</details>`:""}
@@ -2674,7 +2723,7 @@ function pLeitura(S,el){const b=corpo(S),R=S.resp;R.etq=R.etq||{};R.gloss=arr(R.
     <div class="field"><label for="tag">Etiqueta: a ideia deste parágrafo em 3 a 8 palavras suas</label><input id="tag" autocomplete="off" value="${esc(R.etq[i]||load("etq_"+est.id+"_"+S.n+"_"+i,"")||"")}"></div>
     ${CAP.sample?`<div class="row"><button class="btn small" id="eia" ${(R.etq[i]||load("etq_"+est.id+"_"+S.n+"_"+i,""))?"":"disabled"}>Comparar com a IA</button><button class="linkbtn sutil" id="eiaSos">Não consigo resumir: pedir uma sugestão</button></div><div id="eiaBox" aria-live="polite"></div>`:""}
     <div class="row"><input id="gt" style="flex:1 1 12rem;min-width:0;font:1rem var(--f-read);padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)" placeholder="Termo difícil neste parágrafo" aria-label="Termo difícil"><button class="btn small" id="ga">Pôr no glossário</button></div>
-    <div class="row"><button class="btn primary" id="nx" ${R.etq[i]?"":"disabled"} title="Escreva a etiqueta para continuar">Guardar e esconder</button><button class="btn small" id="sk">Pular este parágrafo</button></div>`;
+    <div class="row"><button class="btn primary" id="nx" ${R.etq[i]?"":"disabled"} title="Escreva a etiqueta para continuar">Guardar e esconder</button><button class="btn small" id="sk">${est.li+1<b.length?"Pular este parágrafo ▶":"Pular para o resumo ▶"}</button></div>`;
     est.t0=Date.now();ligarExpl(S,i);const tag=$("#tag");tag.oninput=()=>{save("etq_"+est.id+"_"+S.n+"_"+i,tag.value);$("#nx").disabled=!tag.value.trim();const ea=$("#eia");if(ea)ea.disabled=!tag.value.trim()};
     if(est.sug&&est.sug.k!==S.n+"_"+i)est.sug=null;const mk=ligarMarcador(S,i,R);ligarEtqIA(S,i,mk);
     tag.addEventListener("paste",()=>setTimeout(()=>{if(mk){const c=copiaIdx(P.t,tag.value);if(c.length){mk.addU(c);toast("Trecho copiado marcado no parágrafo. Tente reescrever a etiqueta com as suas palavras.")}}},0));
@@ -2682,7 +2731,7 @@ function pLeitura(S,el){const b=corpo(S),R=S.resp;R.etq=R.etq||{};R.gloss=arr(R.
     $("#ga").onclick=()=>{const t=$("#gt").value.trim();if(!t)return;if(!R.gloss.some(g=>norm(g.termo)===norm(t)))R.gloss.push({termo:t,p:i,sentido:""});$("#gt").value="";salvarResp(S);toast(`“${t}” foi para o glossário.`)};
     $("#nx").onclick=()=>{R.etq[i]=tag.value.trim();R.eorig=R.eorig||{};R.eorig[i]=origemEtq(S,i,R.etq[i]);est.sug=null;
       {const m=R.marc[i];m.loc=m.snap&&!m.snap.inval&&m.snap.u&&m.snap.u.length&&m.a&&m.a.length?locCalc(m.snap.u,m.a):null}logEv("paragrafo",{est:est.id,sec:S.n,i,ms:Date.now()-(est.t0||Date.now()),pal:R.etq[i].split(/\s+/).length});R.li=est.li;est.lph="ask";salvarResp(S);pLeitura(S,el)};
-    $("#sk").onclick=()=>{est.li++;R.li=est.li;salvarResp(S);pLeitura(S,el)};
+    $("#sk").onclick=()=>irPara(est.li+1);ligarNav();
     tag.focus({preventScroll:true});
   }else{
     const Q=S.gen&&S.gen.ideias.find(x=>x.i===i&&!sinal(S,"i"+i));
@@ -2693,11 +2742,11 @@ function pLeitura(S,el){const b=corpo(S),R=S.resp;R.etq=R.etq||{};R.gloss=arr(R.
       est.ta=Date.now();bindOpts(opts,esc(Q.ok),right=>{R.ide=R.ide||{};R.ide[i]=right;salvarResp(S);logEv("ideia",{est:est.id,sec:S.n,i,certo:right,ms:Date.now()-est.ta});
         $("#fb").innerHTML=`<div class="stack"><div class="fb"><b class="${right?"ok":"bad"}">${right?"Isso.":"Não era essa."}</b> Sua etiqueta: <i>${esc(R.etq[i])}</i>. Se ela ficou longe da ideia central, ajuste ao rever.</div>
         <div class="row"><button class="btn primary" id="nx">Próximo parágrafo</button><button class="btn" id="rv">Rever e ajustar a etiqueta</button></div>${botaoSinal("i"+i)}</div>`;
-        $("#nx").onclick=fim;$("#rv").onclick=()=>{est.lph="read";pLeitura(S,el)};ligarSinal(S,el,fim)});
+        $("#nx").onclick=fim;$("#rv").onclick=()=>{est.lph="read";pLeitura(S,el)};ligarSinal(S,el,fim)});ligarNav();
     }else{
       el.innerHTML=`${bar}<div class="hiddenbox">O parágrafo está escondido. Sem olhar, diga para você mesmo a ideia central e compare com a sua etiqueta: <i>${esc(R.etq[i])}</i>.</div>
       <div class="row"><button class="btn primary" id="nx">Próximo parágrafo</button><button class="btn" id="rv">Rever e ajustar a etiqueta</button></div>`;
-      $("#nx").onclick=fim;$("#rv").onclick=()=>{est.lph="read";pLeitura(S,el)};
+      $("#nx").onclick=fim;$("#rv").onclick=()=>{est.lph="read";pLeitura(S,el)};ligarNav();
     }
   }
 }
@@ -2732,7 +2781,7 @@ function pVozes(S,el){const V=S.gen.vozes,nome=Object.fromEntries(V.lista.map(x=
 
 /* 5 · Argumento */
 function argView(S,itens){const g=r=>itens.filter(x=>x.r===r);
-  return `<div class="argview">${["tese","premissa","evidencia","conclusao"].map(r=>g(r).length?`<div><span class="role">${PAPEIS[r]}${g(r).length>1?"s":""}</span>${g(r).map(x=>`<p>${esc(x.t)}${x.p!=null?pg(S,x.p):""}</p>`).join("")}</div>`:"").join("")}</div>`}
+  return `<div class="argview">${["tese","premissa","evidencia","conclusao"].map(r=>g(r).length?`<div><span class="role">${g(r).length>1?plural(PAPEIS[r]):PAPEIS[r]}</span>${g(r).map(x=>`<p>${esc(x.t)}${x.p!=null?pg(S,x.p):""}</p>`).join("")}</div>`:"").join("")}</div>`}
 function pArg(S,el){const A=S.gen.arg.map((x,k)=>({...x,k})).filter(x=>!sinal(S,"a"+x.k));
   if(!est.am)est.am=shuffle(A.map(x=>x.k));
   const byK=Object.fromEntries(A.map(x=>[x.k,x])),ord=est.am.filter(k=>byK[k]);
@@ -2859,7 +2908,7 @@ function htmlImpressao(o){const m=est.meta,P=m.pacote||null,D=fichDados(),Rz=m.r
     if(o.texto)h+=`<h3>Texto</h3><div class="txt">${S.pars.map(p=>p.h?`<p class="hd">${e(p.t)}</p>`:`<p>${e(p.t)} <span class="pg">p. ${p.pg}</span></p>`).join("")}</div>`;
     if(o.fich){
       if(d.resumo.length)h+=`<h3>Resumo nas minhas palavras</h3><ul>${d.resumo.map(x=>`<li>${e(x.t)} <span class="pg">p. ${x.pg}</span></li>`).join("")}</ul>`;
-      if(d.arg&&d.arg.length){h+=`<h3>Argumento</h3>`;["tese","premissa","evidencia","conclusao"].forEach(r=>{const it=d.arg.filter(x=>x.r===r);if(it.length)h+=`<p class="sans"><b>${PAPEIS[r]}${it.length>1?"s":""}</b></p><ul>${it.map(x=>`<li>${e(x.t)}${x.p!=null&&S.pars[x.p]?` <span class="pg">p. ${S.pars[x.p].pg}</span>`:""}</li>`).join("")}</ul>`})}
+      if(d.arg&&d.arg.length){h+=`<h3>Argumento</h3>`;["tese","premissa","evidencia","conclusao"].forEach(r=>{const it=d.arg.filter(x=>x.r===r);if(it.length)h+=`<p class="sans"><b>${it.length>1?plural(PAPEIS[r]):PAPEIS[r]}</b></p><ul>${it.map(x=>`<li>${e(x.t)}${x.p!=null&&S.pars[x.p]?` <span class="pg">p. ${S.pars[x.p].pg}</span>`:""}</li>`).join("")}</ul>`})}
       if(d.rel.length)h+=`<h3>Interlocutores</h3><ul>${d.rel.map(x=>`<li><b>${e(x.n||"")}</b> (${e(x.r)})${x.t?": "+e(x.t):""}</li>`).join("")}</ul>`;
       if(d.crono.length)h+=`<h3>Cronologia</h3><ul>${ordAno(d.crono).map(x=>`<li><b>${e(x.a)}</b>: ${e(x.e)}</li>`).join("")}</ul>`}
     if(o.frases&&g.lab){const it=g.lab.filter((x,k)=>!sinal(S,"l"+k));
@@ -3031,7 +3080,7 @@ function fichMD(){const m=est.meta,D=fichDados();let o=`# Fichamento: ${m.titulo
   if(m.ref)o+=`${m.ref}\n\n`;o+=`${m.paginasEstimadas?"Páginas estimadas (texto sem paginação)":`Páginas ${m.pgIni}–${m.pgFim} do PDF`} · ${new Date().toLocaleDateString("pt-BR")}\n\n## Síntese (nas minhas palavras)\n\n${(m.sintese||"").trim()||"(a escrever)"}\n\n`;
   D.forEach((d,n)=>{const S=d.S;o+=`## ${n+1}. ${S.titulo} (p. ${S.pgIni}–${S.pgFim})\n\n`;
     if(d.resumo.length)o+=`### Resumo nas minhas palavras\n\n${d.resumo.map(x=>`- ${x.t} (p. ${x.pg})`).join("\n")}\n\n`;
-    if(d.arg){o+=`### Argumento\n\n`;["tese","premissa","evidencia","conclusao"].forEach(r=>{const it=d.arg.filter(x=>x.r===r);if(it.length)o+=`**${PAPEIS[r]}${it.length>1?"s":""}**\n\n${it.map(x=>`- ${x.t}${pgOf(S,x.p)}`).join("\n")}\n\n`})}
+    if(d.arg){o+=`### Argumento\n\n`;["tese","premissa","evidencia","conclusao"].forEach(r=>{const it=d.arg.filter(x=>x.r===r);if(it.length)o+=`**${it.length>1?plural(PAPEIS[r]):PAPEIS[r]}**\n\n${it.map(x=>`- ${x.t}${pgOf(S,x.p)}`).join("\n")}\n\n`})}
     if(d.rel.length)o+=`### Interlocutores\n\n${d.rel.map(x=>`- **${x.n}** (${x.r}): ${x.t}`).join("\n")}\n\n`;
     if(d.crono.length)o+=`### Cronologia\n\n${d.crono.slice().sort((a,b)=>(parseInt(a.a)||0)-(parseInt(b.a)||0)).map(x=>`- ${x.a}: ${x.e}${pgOf(S,x.p)}`).join("\n")}\n\n`;
     if(d.perg.length)o+=`### Compreensão\n\n${d.perg.map(x=>`- **${x.q.q}** (${NIVEL[x.q.n].toLowerCase()}): ${x.a.r}`).join("\n")}\n\n`;

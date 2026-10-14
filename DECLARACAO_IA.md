@@ -1,6 +1,6 @@
 # Declaração de autoria e de uso de IA
 
-**Projeto:** LIO · Leitura Inteligente Orientada
+**Projeto:** LIO-E · Leitura Inteligente Orientada (Educacional) — na tela e no logo, LIO
 **Modelo de desenvolvimento:** co-desenvolvimento humano–IA
 
 ## Resumo
@@ -37,7 +37,7 @@ Por causa do objetivo 2, cada versão é construída inteiramente no ambiente da
 
 | Versão | Situação | Publicação no repositório |
 |---|---|---|
-| Claude | Beta (versão 27 do artefato) | Outubro de 2026 |
+| Claude | Beta (versão 29 do artefato) | Outubro de 2026 |
 | ChatGPT | Planejada: começa depois da versão para Claude | — |
 | Gemini | Planejada: começa depois da versão para ChatGPT | — |
 
@@ -48,8 +48,8 @@ Por causa do objetivo 2, cada versão é construída inteiramente no ambiente da
 - **Plataforma:** claude.ai (artefatos), da Anthropic
 - **Modelos:** família Claude 5
 - **Conta usada:** conta pessoal do autor no claude.ai, plano Pro
-- **Período:** 9 a 13 de outubro de 2026
-- **Versões:** 1 a 27 do artefato
+- **Período:** 9 a 14 de outubro de 2026
+- **Versões:** 1 a 29 do artefato
 - **Registro do processo:** `REGISTRO_DESENVOLVIMENTO.md` e histórico de versões na Documentação Técnica, seção "Histórico de desenvolvimento"
 
 ### Versão para ChatGPT
@@ -94,4 +94,5 @@ A autoria aqui declarada é a do projeto: concepção, especificação, desenho 
 | Data | Mudança |
 |---|---|
 | 2026-10-13 | Primeira versão, com a publicação da versão para Claude (beta); especificação comum registrada por impressão digital, ainda não publicada |
+| 2026-10-14 | Versões 28 e 29; esta LIO passa a ser chamada também de LIO-E (Educacional), primeira da família LIO, e dá origem à LIO-L (leis), publicada em [github.com/JOACYFRANCA/lio-l](https://github.com/JOACYFRANCA/lio-l) |
 

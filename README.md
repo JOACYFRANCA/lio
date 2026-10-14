@@ -1,4 +1,6 @@
-# LIO · Leitura Inteligente Orientada
+# LIO-E · Leitura Inteligente Orientada (Educacional)
+
+> Na tela e no logo, aparece como **LIO**.
 
 > **Versão beta:** em teste. Sua opinião ajuda a definir a versão 1.0 — veja [Contribua](#contribua).
 
@@ -6,7 +8,8 @@ Ferramenta de estudo para quem precisa compreender e memorizar textos densos.
 Combina leitura ativa por seções, perguntas de compreensão em três níveis, revisão
 espaçada, mapas visuais, fichamento e treino de memória de trabalho.
 
-   > **Família LIO:** para estudar **lei seca** (concursos, Direito), use a **[LIO-L · Leitura Inteligente Orientada de Leis](https://github.com/JOACYFRANCA/lio-l)**, que lê a lei artigo por artigo e treina com itens no estilo das bancas. Esta LIO (chamada também de LIO-E, Educacional) é a da leitura de textos densos.
+> **Família LIO:** esta é a **LIO-E (Educacional)**, para textos densos de qualquer área. Para estudar **lei seca** (concursos, Direito), use a **[LIO-L · Leitura Inteligente Orientada de Leis](https://github.com/JOACYFRANCA/lio-l)**, que lê a lei artigo por artigo e treina com itens no estilo das bancas.
+
 ## Duas formas de usar
 
 | Forma | Arquivo | Como |
