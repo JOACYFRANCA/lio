@@ -8,7 +8,9 @@ Ferramenta de estudo para quem precisa compreender e memorizar textos densos.
 Combina leitura ativa por seções, perguntas de compreensão em três níveis, revisão
 espaçada, mapas visuais, fichamento e treino de memória de trabalho.
 
-> **Família LIO:** esta é a **LIO-E (Educacional)**, para textos densos de qualquer área. Para estudar **lei seca** (concursos, Direito), use a **[LIO-L · Leitura Inteligente Orientada de Leis](https://github.com/JOACYFRANCA/lio-l)**, que lê a lei artigo por artigo e treina com itens no estilo das bancas.
+> **Família LIO:** esta é a **LIO-E (Educacional)**, para textos densos de qualquer área. Há também duas LIOs derivadas dela:
+> - **[LIO-L · Leitura Inteligente Orientada de Leis](https://github.com/JOACYFRANCA/lio-l)**, para **lei seca** (concursos, Direito): lê a lei artigo por artigo e treina com itens no estilo das bancas.
+> - **[LIO-C · Leitura Inteligente Orientada de Ciências](https://github.com/JOACYFRANCA/lio-c)**, para **Matemática, Física e Química** pelo livro didático: lê fórmulas e figuras, treina cada fórmula e resolve questões junto com o estudante, sem entregar a resposta pronta.
 
 ## Duas formas de usar
 
